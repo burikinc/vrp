@@ -64,7 +64,7 @@ impl DecomposeSearch {
 
         // merge evolution results into one individual
         let mut individual = decomposed_populations.into_iter().fold(
-            Individual::new(refinement_ctx.problem.clone(), random),
+            Individual::new_empty(refinement_ctx.problem.clone(), random),
             |mut individual, decomposed_population| {
                 let (decomposed_individual, _) = decomposed_population.ranked().next().expect(GREEDY_ERROR);
 
