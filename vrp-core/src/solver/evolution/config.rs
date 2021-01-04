@@ -78,9 +78,18 @@ impl EvolutionConfig {
             },
             mutation: Arc::new(CompositeMutation::new(vec![(
                 vec![
-                    (Arc::new(LocalSearch::new(Box::new(CompositeLocalOperator::default()))), 0.05),
-                    (Arc::new(RuinAndRecreate::new_from_problem(problem)), 1.),
-                    (Arc::new(LocalSearch::new(Box::new(CompositeLocalOperator::default()))), 0.01),
+                    (
+                        Arc::new(LocalSearch::new(Box::new(CompositeLocalOperator::default()))),
+                        create_scalar_mutation_probability(0.05, random.clone()),
+                    ),
+                    (
+                        Arc::new(RuinAndRecreate::new_from_problem(problem)),
+                        create_scalar_mutation_probability(1., random.clone()),
+                    ),
+                    (
+                        Arc::new(LocalSearch::new(Box::new(CompositeLocalOperator::default()))),
+                        create_scalar_mutation_probability(0.05, random.clone()),
+                    ),
                 ],
                 1,
             )])),
