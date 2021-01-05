@@ -20,7 +20,7 @@ use std::fmt::Display;
 pub type Individual = InsertionContext;
 
 /// Specifies a selection phase.
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Eq, Hash)]
 pub enum SelectionPhase {
     /// A phase of building an initial solution(-s).
     Initial,
