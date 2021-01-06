@@ -81,6 +81,8 @@ impl EvolutionConfig {
                     (
                         Arc::new(DecomposeSearch::new(
                             Arc::new(RuinAndRecreate::new_from_problem(problem.clone())),
+                            (2, 4),
+                            2,
                             10,
                         )),
                         create_context_mutation_probability(
